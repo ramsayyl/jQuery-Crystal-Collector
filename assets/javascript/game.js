@@ -23,7 +23,6 @@ var crystals = {
       crystals.yourScore += crystals.crystal1;
       $("#score").text(crystals.yourScore);
       crystals.winCheck();
-
     });
 
     $("#crystal2").on("click", function(){
@@ -49,46 +48,44 @@ var crystals = {
   },
 
   scoreUpdate: function() {
-    $("#target").text(crystals.targetScore);
-    $("#score").text(crystals.yourScore);
-    $("#winDisplay").text(crystals.wins);
-    $("#lossDisplay").text(crystals.losses);
+    $("#target").text(this.targetScore);
+    $("#score").text(this.yourScore);
+    $("#winDisplay").text(this.wins);
+    $("#lossDisplay").text(this.losses);
 
-
-
-    console.log(crystals.targetScore);
-    console.log(crystals.crystal1);
-    console.log(crystals.crystal2);
-    console.log(crystals.crystal3);
-    console.log(crystals.crystal4);
+    console.log("Target Score: " + this.targetScore);
+    console.log("Crystals: " + this.crystal1);
+    console.log("Crystals: " + this.crystal2);
+    console.log("Crystals: " + this.crystal3);
+    console.log("Crystals: " + this.crystal4);
   },
 
   winCheck: function() {
 
     if(crystals.yourScore === crystals.targetScore) {
-      crystals.wins++
+      this.wins++
       $("#winDisplay").text(crystals.wins);
       crystals.reset();
     }
     else if (crystals.yourScore > crystals.targetScore) {
-      crystals.losses++;
+      this.losses++;
       $("#lossDisplay").text(crystals.losses);
       crystals.reset();
     }
   },
 
   reset: function() {
-    crystals.targetScore = Math.floor(Math.random() * 100) + 1;
-    crystals.yourScore = 0;
-    crystals.crystal1 = 0;
-    crystals.crystal2 = 0;
-    crystals.crystal3 = 0;
-    crystals.crystal4 = 0;
+    this.targetScore = Math.floor(Math.random() * 120) + 19;
+    this.yourScore = 0;
+    this.crystal1 = 0;
+    this.crystal2 = 0;
+    this.crystal3 = 0;
+    this.crystal4 = 0;
 
-    crystals.crystal1 = Math.floor(Math.random() * 12) + 1;
-    crystals.crystal2 = Math.floor(Math.random() * 12) + 1;
-    crystals.crystal3 = Math.floor(Math.random() * 12) + 1;
-    crystals.crystal4 = Math.floor(Math.random() * 12) + 1;
+    this.crystal1 = Math.floor(Math.random() * 12) + 1;
+    this.crystal2 = Math.floor(Math.random() * 12) + 1;
+    this.crystal3 = Math.floor(Math.random() * 12) + 1;
+    this.crystal4 = Math.floor(Math.random() * 12) + 1;
 
     crystals.scoreUpdate();
   }
