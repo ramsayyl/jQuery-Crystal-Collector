@@ -1,4 +1,5 @@
 # jQuery-Crystal-Collector
+https://ramsayyl.github.io/jQuery-Crystal-Collector/
 
 There will be four crystals displayed as buttons on the page.
 The player will be shown a random number at the start of the game.
